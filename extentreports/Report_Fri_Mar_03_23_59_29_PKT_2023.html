@@ -1,0 +1,1209 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Automation</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>SmartMart Cash Reconciliation Automation Testing</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Mar 3, 2023 11:59:29 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>16</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> skipped
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>serviceTestcase</span>
+						<span class='test-time'>Mar 3, 2023 11:59:42 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 3, 2023 11:59:42 PM</span>
+	<span class='label end-time'>Mar 3, 2023 11:59:42 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+537ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>11:59:42 PM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: serviceTestcase</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>11:59:42 PM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.avgService_time(service_waiting.java:569)<br> Spectra.SpecDashboard.servicewaitingTest.serviceTestcase(servicewaitingTest.java:41)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>11:59:42 PM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Fri_Mar_03_23_59_42_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Fri_Mar_03_23_59_42_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>11:59:42 PM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodserviceTestcase Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Opencounters</span>
+						<span class='test-time'>Mar 3, 2023 11:59:54 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 3, 2023 11:59:54 PM</span>
+	<span class='label end-time'>Mar 4, 2023 12:00:26 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 31s+782ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:00:26 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: Opencounters</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:00:26 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.service_waiting.opencounters(service_waiting.java:86)<br> Spectra.SpecDashboard.servicewaitingTest.Opencounters(servicewaitingTest.java:47)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:00:26 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Opencounters_Sat_Mar_04_00_00_26_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Opencounters_Sat_Mar_04_00_00_26_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:00:26 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodOpencounters Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>tickettransfer</span>
+						<span class='test-time'>Mar 4, 2023 12:00:38 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:00:38 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:01:00 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+349ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:00 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: tickettransfer</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:00 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.tickettransfer(service_waiting.java:422)<br> Spectra.SpecDashboard.servicewaitingTest.tickettransfer(servicewaitingTest.java:52)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:00 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/tickettransfer_Sat_Mar_04_00_01_00_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/tickettransfer_Sat_Mar_04_00_01_00_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:00 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodtickettransfer Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>ticketserving</span>
+						<span class='test-time'>Mar 4, 2023 12:01:12 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:01:12 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:01:34 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+894ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:34 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: ticketserving</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:34 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.ticket_in_serving(service_waiting.java:469)<br> Spectra.SpecDashboard.servicewaitingTest.ticketserving(servicewaitingTest.java:57)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:34 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserving_Sat_Mar_04_00_01_34_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserving_Sat_Mar_04_00_01_34_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:01:34 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodticketserving Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>ticketIssued</span>
+						<span class='test-time'>Mar 4, 2023 12:01:47 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:01:47 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:02:15 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+256ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:15 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: ticketIssued</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:15 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.ticketIssued(service_waiting.java:514)<br> Spectra.SpecDashboard.servicewaitingTest.ticketIssued(servicewaitingTest.java:62)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:15 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketIssued_Sat_Mar_04_00_02_15_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketIssued_Sat_Mar_04_00_02_15_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:15 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodticketIssued Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>ticketserved</span>
+						<span class='test-time'>Mar 4, 2023 12:02:26 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:02:26 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:02:54 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+187ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:54 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: ticketserved</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:54 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.ticketserved(service_waiting.java:561)<br> Spectra.SpecDashboard.servicewaitingTest.ticketserved(servicewaitingTest.java:67)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:54 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserved_Sat_Mar_04_00_02_54_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserved_Sat_Mar_04_00_02_54_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:02:54 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodticketserved Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>avgServiceTime</span>
+						<span class='test-time'>Mar 4, 2023 12:03:05 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:03:05 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:03:44 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+201ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:03:43 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: avgServiceTime</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:03:43 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.avgService_time(service_waiting.java:608)<br> Spectra.SpecDashboard.servicewaitingTest.avgServiceTime(servicewaitingTest.java:72)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:03:44 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgServiceTime_Sat_Mar_04_00_03_43_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgServiceTime_Sat_Mar_04_00_03_43_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:03:44 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodavgServiceTime Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>avgWaitTime</span>
+						<span class='test-time'>Mar 4, 2023 12:03:55 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:03:55 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:04:21 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 25s+934ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:04:20 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: avgWaitTime</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:04:20 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.avgwait_time(service_waiting.java:656)<br> Spectra.SpecDashboard.servicewaitingTest.avgWaitTime(servicewaitingTest.java:77)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:04:21 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgWaitTime_Sat_Mar_04_00_04_20_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgWaitTime_Sat_Mar_04_00_04_20_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:04:21 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodavgWaitTime Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>maxwait_time</span>
+						<span class='test-time'>Mar 4, 2023 12:04:31 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:04:31 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:05:49 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+980ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:05:49 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: maxwait_time</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:05:49 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.maxwait_time(service_waiting.java:793)<br> Spectra.SpecDashboard.servicewaitingTest.maxwait_time(servicewaitingTest.java:82)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:05:49 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxwait_time_Sat_Mar_04_00_05_49_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxwait_time_Sat_Mar_04_00_05_49_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:05:49 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodmaxwait_time Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>maxServicetime</span>
+						<span class='test-time'>Mar 4, 2023 12:06:00 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:06:00 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:07:13 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 12s+716ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:13 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: maxServicetime</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:13 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.maxservice_time(service_waiting.java:702)<br> Spectra.SpecDashboard.servicewaitingTest.maxServicetime(servicewaitingTest.java:87)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:13 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxServicetime_Sat_Mar_04_00_07_13_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxServicetime_Sat_Mar_04_00_07_13_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:13 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test MethodmaxServicetime Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>ticketnoshow</span>
+						<span class='test-time'>Mar 4, 2023 12:07:24 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:07:24 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:07:42 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+674ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:42 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: ticketnoshow</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:42 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.ticketnoshow(service_waiting.java:189)<br> Spectra.SpecDashboard.servicewaitingTest.ticketnoshow(servicewaitingTest.java:92)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:42 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketnoshow_Sat_Mar_04_00_07_42_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketnoshow_Sat_Mar_04_00_07_42_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:07:42 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodticketnoshow Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>servicecomplaince</span>
+						<span class='test-time'>Mar 4, 2023 12:07:53 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:07:53 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:09:11 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+694ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:09:11 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: servicecomplaince</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:09:11 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.serviceComplaince(service_waiting.java:747)<br> Spectra.SpecDashboard.servicewaitingTest.servicecomplaince(servicewaitingTest.java:97)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:09:11 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/servicecomplaince_Sat_Mar_04_00_09_11_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/servicecomplaince_Sat_Mar_04_00_09_11_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:09:11 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodservicecomplaince Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>waitingcomplaince</span>
+						<span class='test-time'>Mar 4, 2023 12:09:22 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:09:22 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:10:40 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+712ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:10:39 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: waitingcomplaince</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:10:39 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.waitingcomplaince(service_waiting.java:378)<br> Spectra.SpecDashboard.servicewaitingTest.waitingcomplaince(servicewaitingTest.java:102)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:10:40 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/waitingcomplaince_Sat_Mar_04_00_10_39_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/waitingcomplaince_Sat_Mar_04_00_10_39_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:10:40 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodwaitingcomplaince Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>queue</span>
+						<span class='test-time'>Mar 4, 2023 12:10:51 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:10:51 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:12:09 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+756ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:12:09 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: queue</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:12:09 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.queuesize(service_waiting.java:332)<br> Spectra.SpecDashboard.servicewaitingTest.queue(servicewaitingTest.java:107)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:12:09 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/queue_Sat_Mar_04_00_12_09_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/queue_Sat_Mar_04_00_12_09_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:12:09 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodqueue Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>ste</span>
+						<span class='test-time'>Mar 4, 2023 12:12:20 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:12:20 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:13:38 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+711ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:13:38 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: ste</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:13:38 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.STE(service_waiting.java:285)<br> Spectra.SpecDashboard.servicewaitingTest.ste(servicewaitingTest.java:112)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:13:38 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ste_Sat_Mar_04_00_13_38_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ste_Sat_Mar_04_00_13_38_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:13:38 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodste Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>wte</span>
+						<span class='test-time'>Mar 4, 2023 12:13:49 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 4, 2023 12:13:49 AM</span>
+	<span class='label end-time'>Mar 4, 2023 12:15:07 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 17s+794ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:15:07 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'>NAme of test fail: wte</span>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:15:07 AM</td>
+				<td class='step-details'>
+						<details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.testng.Assert.fail(Assert.java:99)<br> org.testng.Assert.failNotEquals(Assert.java:1037)<br> org.testng.Assert.assertEqualsImpl(Assert.java:140)<br> org.testng.Assert.assertEquals(Assert.java:122)<br> org.testng.Assert.assertEquals(Assert.java:629)<br> org.testng.Assert.assertEquals(Assert.java:639)<br> pageObjects.service_waiting.WTE(service_waiting.java:237)<br> Spectra.SpecDashboard.servicewaitingTest.wte(servicewaitingTest.java:117)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details>
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:15:07 AM</td>
+				<td class='step-details'>
+						<b><font color=red>Screenshot of failure</font></b>
+					<img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/wte_Sat_Mar_04_00_15_07_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/wte_Sat_Mar_04_00_15_07_PKT_2023.png'>
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>12:15:07 AM</td>
+				<td class='step-details'>
+						<span class='badge white-text red'><b> Test Methodwte Failed </b></span>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>16</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Mar 3, 2023 11:59:29 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Mar 4, 2023 12:15:08 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 15m 39s+54ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Hostname</td>
+								<td>localhost</td>
+							</tr>
+							<tr>
+								<td>OS</td>
+								<td>WINDOWS 10</td>
+							</tr>
+							<tr>
+								<td>TesterName</td>
+								<td>kulsoom</td>
+							</tr>
+							<tr>
+								<td>Browsername</td>
+								<td>chrome</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 16,
+				passParent: 0,
+				failParent: 16,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 16,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "serviceTestcase":0.537,"Opencounters":31.782,"tickettransfer":22.349,"ticketserving":22.894,"ticketIssued":28.256,"ticketserved":28.187,"avgServiceTime":38.201,"avgWaitTime":25.934,"maxwait_time":77.98,"maxServicetime":72.716,"ticketnoshow":17.674,"servicecomplaince":77.694,"waitingcomplaince":77.712,"queue":77.756,"ste":77.711,"wte":77.794
+			};
+		</script>
+	
+		  <script src='https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>

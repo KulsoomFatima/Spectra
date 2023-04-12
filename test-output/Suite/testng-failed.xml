@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="Spectra.SpecDashboard.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="Spectra.SpecDashboard.HomePageTest">
+        <methods>
+          <include name="CounterTestcase"/>
+          <include name="branchevolutionreadingTest"/>
+          <include name="serviceTestcase"/>
+          <include name="TearDown"/>
+          <include name="SetUp"/>
+        </methods>
+      </class> <!-- Spectra.SpecDashboard.HomePageTest -->
+      <class name="Spectra.SpecDashboard.LoginPageTest">
+        <methods>
+          <include name="SetUp"/>
+          <include name="validusernameloginwithincorrectpassTest"/>
+          <include name="TearDown"/>
+        </methods>
+      </class> <!-- Spectra.SpecDashboard.LoginPageTest -->
+      <class name="Spectra.SpecDashboard.servicewaitingTest">
+        <methods>
+          <include name="ste"/>
+          <include name="ticketIssued"/>
+          <include name="TearDown"/>
+          <include name="tickettransfer"/>
+          <include name="waitingcomplaince"/>
+          <include name="ticketserving"/>
+          <include name="ticketnoshow"/>
+          <include name="servicecomplaince"/>
+          <include name="avgWaitTime"/>
+          <include name="SetUp"/>
+          <include name="serviceTestcase"/>
+          <include name="ticketserved"/>
+          <include name="maxServicetime"/>
+          <include name="maxwait_time"/>
+        </methods>
+      </class> <!-- Spectra.SpecDashboard.servicewaitingTest -->
+      <class name="Spectra.SpecDashboard.branches_categoryTest">
+        <methods>
+          <include name="categorydetail"/>
+          <include name="latestServey"/>
+          <include name="Branchestopandbottom"/>
+          <include name="counters"/>
+          <include name="realtime_monitoring"/>
+          <include name="Average_Time_Per_Category"/>
+          <include name="Target_Compliance_Per_Category"/>
+          <include name="TearDown"/>
+          <include name="SetUp"/>
+        </methods>
+      </class> <!-- Spectra.SpecDashboard.branches_categoryTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

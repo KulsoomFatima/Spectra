@@ -1,0 +1,1403 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>page title</title>
+	<meta name="description" content="extent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="extent">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@832f979664f9d68bf618db3ac87498ac6c1a6390/logger/css/logger-style.css" type="text/css" />
+</head>
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+	<body class="dark">
+		<div class="app" id="app">
+<div id="aside" class="app-aside fade box-shadow-x folded dark">
+	<div class="sidenav modal-dialog dk">
+		<div class="navbar">
+			<a href="#" class="navbar-brand">
+			<span class="d-inline small"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></span>
+			</a>
+		</div>
+		<div class="flex hide-scroll">
+			<div class="scroll">
+				<div class="nav-border b-primary">
+					<ul class="nav bg">
+						<li>
+							<a href="index.html">
+							<span class="nav-icon">
+							<i class="fa fa-align-left"></i>
+							</span>
+							<span class="nav-text">Tests</span>
+							</a>
+						</li>
+												<li>
+							<a href="dashboard.html">
+							<span class="nav-icon">
+							<i class="fa fa-dashboard"></i>
+							</span>
+							<span class="nav-text">Dashboard</span>
+							</a>
+						</li>
+						<li class="pb-2 hidden-folded"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="no-shrink">
+			<div class="nav-fold">
+				<a id="lightsout" class="d-flex p-2-3"><span><i class="fa fa-desktop"></i></span></a>
+				<div class="hidden-folded flex p-2-3 bg">
+					<div class="d-flex p-1">
+						<a href="http://github.com/extent-framework/extentreports" class="flex text-nowrap"><i class="fa fa-github"></i></a>
+						<a href="http://extentreports.com" class="px-2"><i class="fa fa-book"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			<div id="content" class="app-content box-shadow-0" role="main">
+				<div id="content" class="app-content box-shadow-2 box-radius-2" role="main">
+					<div class="content-header white  box-shadow-2" id="content-header">
+						<div class="navbar navbar-expand-lg">
+							<div class="input-group flex mr-1">
+				              	<input id="qt" type="text" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search..." required="">
+				              	<span class="input-group-btn">
+				                	<button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted text-xs"></i></button>
+				              	</span>
+				            </div>
+							<ul class="nav nav-xs flex-row no-border pull-right">
+								<li class="nav-item dropdown">
+									<a class="nav-link b-l" data-toggle="dropdown">
+									<span class="text-xs">
+									<i class="fa fa-warning"></i>
+									<i class="fa fa-caret-down"></i>
+									</span>
+									</a>
+									<div class="dropdown-menu pt-0 mt-2 animate fadeIn">
+										<a class="dropdown-item" href="#"><span class="tf" status="pass"><i class="fa fa-dot-circle-o text-success"></i>Pass</span></a>
+										<a class="dropdown-item" href="#"><span class="tf" status="fail"><i class="fa fa-dot-circle-o text-danger"></i>Fail</span></a>
+										
+										
+										
+										
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
+									</div>
+								</li>
+						        <li class="nav-item lightsout"><a class="nav-link b-l" href="#"><span><i class="fa fa-desktop"></i></span></a></li>
+								<li><a href="#" class="b-l"><span class="badge badge-pull">build name</span></a></li>
+								<li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="content-main " id="content-main">
+						<div class="padding">
+							<div class="row justify-content-md-center">
+								<div class="col-md-8 col-sm-12">
+									<div class="logger-content">
+										<h6 class="mb-3 ml-1">Test Logs</h6>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:02:54</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[clickallcomponents] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:03:00</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[clickallcomponents]</span>
+													
+													<span class="td">clickallcomponents ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:03:00</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[clickallcomponents]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: clickallcomponents</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:03:06</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[colourTest] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:04:54</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[colourTest]</span>
+													
+													<span class="td">colourTest ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:04:54</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[colourTest]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: colourTest</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:05:01</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[serviceTestcase] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:03</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: serviceTestcase</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:03</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.HomePage.service(HomePage.java:119)<br> Spectra.SpecDashboard.HomePageTest.serviceTestcase(HomePageTest.java:35)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Mon_Mar_06_17_05_03_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Mon_Mar_06_17_05_03_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodserviceTestcase Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:05:10</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[waitTestcase] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:05:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[waitTestcase]</span>
+													
+													<span class="td">waitTestcase ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:05:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[waitTestcase]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: waitTestcase</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:05:38</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[CounterTestcase] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:50</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[CounterTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: CounterTestcase</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:50</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[CounterTestcase]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.HomePage.counters(HomePage.java:680)<br> Spectra.SpecDashboard.HomePageTest.CounterTestcase(HomePageTest.java:47)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:50</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[CounterTestcase]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/CounterTestcase_Mon_Mar_06_17_05_50_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/CounterTestcase_Mon_Mar_06_17_05_50_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:05:50</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[CounterTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodCounterTestcase Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:05:57</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[branchevolutionreadingTest] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:06:34</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[branchevolutionreadingTest]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: branchevolutionreadingTest</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:06:34</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[branchevolutionreadingTest]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)<br> org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)<br> pageObjects.HomePage.readingtooltip_G_ALL(HomePage.java:797)<br> Spectra.SpecDashboard.HomePageTest.branchevolutionreadingTest(HomePageTest.java:55)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:06:34</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[branchevolutionreadingTest]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/branchevolutionreadingTest_Mon_Mar_06_17_06_34_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/branchevolutionreadingTest_Mon_Mar_06_17_06_34_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:06:34</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[branchevolutionreadingTest]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodbranchevolutionreadingTest Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:06:41</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[IncorrectpassloginTest] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:41</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[IncorrectpassloginTest]</span>
+													
+													<span class="td">IncorrectpassloginTest ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:41</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[IncorrectpassloginTest]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: IncorrectpassloginTest</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:06:49</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[IncorrectuserloginTest] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:50</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[IncorrectuserloginTest]</span>
+													
+													<span class="td">IncorrectuserloginTest ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:50</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[IncorrectuserloginTest]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: IncorrectuserloginTest</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:06:56</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[LangTest] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:57</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[LangTest]</span>
+													
+													<span class="td">LangTest ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:06:57</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[LangTest]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: LangTest</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:07:04</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[LoginTest] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:07:05</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[LoginTest]</span>
+													
+													<span class="td">LoginTest ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:07:05</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[LoginTest]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: LoginTest</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:07:11</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[validusernameloginwithincorrectpassTest] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:11</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[validusernameloginwithincorrectpassTest]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: validusernameloginwithincorrectpassTest</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:11</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[validusernameloginwithincorrectpassTest]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)<br> jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)<br> jdk.proxy2/jdk.proxy2.$Proxy13.sendKeys(Unknown Source)<br> pageObjects.LoginPage.login(LoginPage.java:46)<br> Spectra.SpecDashboard.LoginPageTest.validusernameloginwithincorrectpassTest(LoginPageTest.java:53)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:13</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[validusernameloginwithincorrectpassTest]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/validusernameloginwithincorrectpassTest_Mon_Mar_06_17_07_11_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/validusernameloginwithincorrectpassTest_Mon_Mar_06_17_07_11_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:13</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[validusernameloginwithincorrectpassTest]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodvalidusernameloginwithincorrectpassTest Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:07:26</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[serviceTestcase] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:26</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: serviceTestcase</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:26</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.avgService_time(service_waiting.java:569)<br> Spectra.SpecDashboard.servicewaitingTest.serviceTestcase(servicewaitingTest.java:41)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:26</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Mon_Mar_06_17_07_26_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/serviceTestcase_Mon_Mar_06_17_07_26_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:07:26</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[serviceTestcase]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodserviceTestcase Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:07:38</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Opencounters] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:08:10</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Opencounters]</span>
+													
+													<span class="td">Opencounters ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:08:10</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Opencounters]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Opencounters</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:08:23</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[tickettransfer] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:23</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[tickettransfer]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: tickettransfer</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:23</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[tickettransfer]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.tickettransfer(service_waiting.java:385)<br> Spectra.SpecDashboard.servicewaitingTest.tickettransfer(servicewaitingTest.java:52)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:23</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[tickettransfer]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/tickettransfer_Mon_Mar_06_17_08_23_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/tickettransfer_Mon_Mar_06_17_08_23_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:23</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[tickettransfer]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodtickettransfer Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:08:36</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[ticketserving] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:59</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserving]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: ticketserving</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:59</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserving]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.service_waiting.ticket_in_serving(service_waiting.java:460)<br> Spectra.SpecDashboard.servicewaitingTest.ticketserving(servicewaitingTest.java:57)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:59</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserving]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserving_Mon_Mar_06_17_08_59_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserving_Mon_Mar_06_17_08_59_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:08:59</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserving]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodticketserving Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:09:12</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[ticketIssued] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:12</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketIssued]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: ticketIssued</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:12</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketIssued]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.ticketIssued(service_waiting.java:476)<br> Spectra.SpecDashboard.servicewaitingTest.ticketIssued(servicewaitingTest.java:62)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:12</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketIssued]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketIssued_Mon_Mar_06_17_09_12_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketIssued_Mon_Mar_06_17_09_12_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:12</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketIssued]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodticketIssued Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:09:25</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[ticketserved] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:25</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserved]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: ticketserved</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:25</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserved]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.ticketserved(service_waiting.java:522)<br> Spectra.SpecDashboard.servicewaitingTest.ticketserved(servicewaitingTest.java:67)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:25</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserved]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserved_Mon_Mar_06_17_09_25_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketserved_Mon_Mar_06_17_09_25_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:09:25</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketserved]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodticketserved Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:09:37</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[avgServiceTime] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:10:16</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[avgServiceTime]</span>
+													
+													<span class="td">avgServiceTime ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:10:16</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[avgServiceTime]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: avgServiceTime</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:10:27</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[avgWaitTime] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:27</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[avgWaitTime]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: avgWaitTime</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:27</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[avgWaitTime]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.avgwait_time(service_waiting.java:616)<br> Spectra.SpecDashboard.servicewaitingTest.avgWaitTime(servicewaitingTest.java:77)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:28</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[avgWaitTime]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgWaitTime_Mon_Mar_06_17_10_27_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/avgWaitTime_Mon_Mar_06_17_10_27_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:28</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[avgWaitTime]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodavgWaitTime Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:10:40</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[maxwait_time] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:43</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxwait_time]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: maxwait_time</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:43</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxwait_time]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.service_waiting.maxwait_time(service_waiting.java:765)<br> Spectra.SpecDashboard.servicewaitingTest.maxwait_time(servicewaitingTest.java:82)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:43</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxwait_time]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxwait_time_Mon_Mar_06_17_10_43_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxwait_time_Mon_Mar_06_17_10_43_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:43</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxwait_time]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodmaxwait_time Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:10:55</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[maxServicetime] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:55</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxServicetime]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: maxServicetime</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:55</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxServicetime]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.maxservice_time(service_waiting.java:663)<br> Spectra.SpecDashboard.servicewaitingTest.maxServicetime(servicewaitingTest.java:87)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:55</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxServicetime]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxServicetime_Mon_Mar_06_17_10_55_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/maxServicetime_Mon_Mar_06_17_10_55_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:10:55</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[maxServicetime]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodmaxServicetime Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:11:07</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[ticketnoshow] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:07</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketnoshow]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: ticketnoshow</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:07</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketnoshow]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.ticketnoshow(service_waiting.java:149)<br> Spectra.SpecDashboard.servicewaitingTest.ticketnoshow(servicewaitingTest.java:92)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:08</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketnoshow]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketnoshow_Mon_Mar_06_17_11_07_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ticketnoshow_Mon_Mar_06_17_11_07_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:08</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ticketnoshow]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodticketnoshow Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:11:20</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[servicecomplaince] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:20</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[servicecomplaince]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: servicecomplaince</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:20</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[servicecomplaince]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.serviceComplaince(service_waiting.java:710)<br> Spectra.SpecDashboard.servicewaitingTest.servicecomplaince(servicewaitingTest.java:97)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:20</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[servicecomplaince]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/servicecomplaince_Mon_Mar_06_17_11_20_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/servicecomplaince_Mon_Mar_06_17_11_20_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:20</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[servicecomplaince]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodservicecomplaince Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:11:33</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[waitingcomplaince] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:35</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[waitingcomplaince]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: waitingcomplaince</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:35</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[waitingcomplaince]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.service_waiting.waitingcomplaince(service_waiting.java:348)<br> Spectra.SpecDashboard.servicewaitingTest.waitingcomplaince(servicewaitingTest.java:102)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:35</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[waitingcomplaince]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/waitingcomplaince_Mon_Mar_06_17_11_35_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/waitingcomplaince_Mon_Mar_06_17_11_35_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:11:35</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[waitingcomplaince]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodwaitingcomplaince Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:11:47</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[queue] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:13:06</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[queue]</span>
+													
+													<span class="td">queue ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:13:06</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[queue]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: queue</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:13:18</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[ste] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:13:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ste]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: ste</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:13:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ste]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.service_waiting.STE(service_waiting.java:245)<br> Spectra.SpecDashboard.servicewaitingTest.ste(servicewaitingTest.java:112)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:13:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ste]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ste_Mon_Mar_06_17_13_18_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/ste_Mon_Mar_06_17_13_18_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:13:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[ste]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodste Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:13:30</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[wte] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:14:48</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[wte]</span>
+													
+													<span class="td">wte ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:14:48</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[wte]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: wte</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:15:00</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[Average_Time_Per_Category] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:15:00</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Average_Time_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: Average_Time_Per_Category</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:15:00</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Average_Time_Per_Category]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.branches_category.Average_Time_Per_Category(branches_category.java:647)<br> Spectra.SpecDashboard.branches_categoryTest.Average_Time_Per_Category(branches_categoryTest.java:71)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:15:01</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Average_Time_Per_Category]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Average_Time_Per_Category_Mon_Mar_06_17_15_00_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Average_Time_Per_Category_Mon_Mar_06_17_15_00_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:15:01</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Average_Time_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodAverage_Time_Per_Category Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:15:13</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[Branchestopandbottom] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:16:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Branchestopandbottom]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: Branchestopandbottom</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:16:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Branchestopandbottom]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)<br> org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)<br> pageObjects.branches_category.Branchestopandbottomticketserved(branches_category.java:367)<br> Spectra.SpecDashboard.branches_categoryTest.Branchestopandbottom(branches_categoryTest.java:46)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:16:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Branchestopandbottom]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Branchestopandbottom_Mon_Mar_06_17_16_04_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Branchestopandbottom_Mon_Mar_06_17_16_04_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:16:04</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Branchestopandbottom]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodBranchestopandbottom Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:16:16</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Client_Served_Per_Category] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:16:45</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Client_Served_Per_Category]</span>
+													
+													<span class="td">Client_Served_Per_Category ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:16:45</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Client_Served_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Client_Served_Per_Category</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:16:57</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Client_waiting_Per_Category] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:17:25</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Client_waiting_Per_Category]</span>
+													
+													<span class="td">Client_waiting_Per_Category ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:17:25</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Client_waiting_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Client_waiting_Per_Category</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:17:37</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Service_Rate_Per_Category] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:18:06</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Service_Rate_Per_Category]</span>
+													
+													<span class="td">Service_Rate_Per_Category ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:18:06</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Service_Rate_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Service_Rate_Per_Category</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:18:18</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[Target_Compliance_Per_Category] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:18:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Target_Compliance_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: Target_Compliance_Per_Category</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:18:18</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Target_Compliance_Per_Category]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.getTagName(Unknown Source)<br> org.openqa.selenium.support.ui.Select.<init>(Select.java:45)<br> pageObjects.branches_category.Target_Compliance_Per_Category(branches_category.java:573)<br> Spectra.SpecDashboard.branches_categoryTest.Target_Compliance_Per_Category(branches_categoryTest.java:66)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:18:19</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Target_Compliance_Per_Category]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Target_Compliance_Per_Category_Mon_Mar_06_17_18_18_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/Target_Compliance_Per_Category_Mon_Mar_06_17_18_18_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:18:19</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[Target_Compliance_Per_Category]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodTarget_Compliance_Per_Category Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:18:31</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Tellergroup] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:18:54</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Tellergroup]</span>
+													
+													<span class="td">Tellergroup ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:18:54</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Tellergroup]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Tellergroup</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:19:07</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Tellerstopandbottom] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:20:38</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Tellerstopandbottom]</span>
+													
+													<span class="td">Tellerstopandbottom ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:20:38</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[Tellerstopandbottom]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: Tellerstopandbottom</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:20:48</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[categories] started</span>
+												
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:20:48</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[categories]</span>
+													
+													<span class="td">categories ,Test passed</span>
+												</div>
+												<div class="st pass">
+													<span class="tt">03.06.2023 17:20:48</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">[categories]</span>
+													
+													<span class="td"><span class='badge white-text green'>Name of test pass: categories</span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:20:57</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[categorydetail] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:10</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[categorydetail]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: categorydetail</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:10</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[categorydetail]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.branches_category.categorydetail(branches_category.java:471)<br> Spectra.SpecDashboard.branches_categoryTest.categorydetail(branches_categoryTest.java:58)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:11</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[categorydetail]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/categorydetail_Mon_Mar_06_17_21_10_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/categorydetail_Mon_Mar_06_17_21_10_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:11</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[categorydetail]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodcategorydetail Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:21:22</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[counters] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:47</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[counters]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: counters</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:47</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[counters]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br> java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.branches_category.counters(branches_category.java:1114)<br> Spectra.SpecDashboard.branches_categoryTest.counters(branches_categoryTest.java:100)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:48</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[counters]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/counters_Mon_Mar_06_17_21_47_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/counters_Mon_Mar_06_17_21_47_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:48</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[counters]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodcounters Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:21:57</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[latestServey] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:57</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[latestServey]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: latestServey</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:57</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[latestServey]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[jdk.internal.reflect.GeneratedConstructorAccessor26.newInstance(Unknown Source)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)<br> org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)<br> jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)<br> pageObjects.branches_category.latestServey(branches_category.java:430)<br> Spectra.SpecDashboard.branches_categoryTest.latestServey(branches_categoryTest.java:53)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:57</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[latestServey]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/latestServey_Mon_Mar_06_17_21_57_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/latestServey_Mon_Mar_06_17_21_57_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:21:57</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[latestServey]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test MethodlatestServey Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">03.06.2023 17:22:07</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[realtime_monitoring] started</span>
+												
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:22:33</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[realtime_monitoring]</span>
+													
+													<span class="td"><span class='badge white-text red'>Name of test fail: realtime_monitoring</span></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:22:33</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[realtime_monitoring]</span>
+													
+													<span class="td"><details><summary><b><font color=red>Exception Occured, click to see the details:</font><b></summary>[jdk.internal.reflect.GeneratedConstructorAccessor26.newInstance(Unknown Source)<br> java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br> java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)<br> java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)<br> org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)<br> org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)<br> org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)<br> org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)<br> org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)<br> org.openqa.selenium.By$ByXPath.findElement(By.java:353)<br> org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)<br> pageObjects.branches_category.realtime_monitoring(branches_category.java:1031)<br> Spectra.SpecDashboard.branches_categoryTest.realtime_monitoring(branches_categoryTest.java:96)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br> java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)<br> java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br> java.base/java.lang.reflect.Method.invoke(Method.java:568)<br> org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)<br> org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)<br> org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)<br> org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)<br> org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)<br> org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)<br> org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)<br> org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:794)<br> org.testng.TestRunner.run(TestRunner.java:596)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:377)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)<br> org.testng.SuiteRunner.run(SuiteRunner.java:276)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1134)<br> org.testng.TestNG.runSuites(TestNG.java:1063)<br> org.testng.TestNG.run(TestNG.java:1031)<br> org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br> org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br> org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]</details></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:22:33</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[realtime_monitoring]</span>
+													<span class="tm"><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/realtime_monitoring_Mon_Mar_06_17_22_33_PKT_2023.png' src='C:\Users\hp\eclipse-workspace\SpecDashboard/Screenshots/realtime_monitoring_Mon_Mar_06_17_22_33_PKT_2023.png'></span>
+													<span class="td"><b><font color=red>Screenshot of failure</font></b></span>
+												</div>
+												<div class="st fail">
+													<span class="tt">03.06.2023 17:22:33</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">[realtime_monitoring]</span>
+													
+													<span class="td"><span class='badge white-text red'><b> Test Methodrealtime_monitoring Failed </b></span></span>
+												</div>
+											</div>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@832f979664f9d68bf618db3ac87498ac6c1a6390/logger/js/logger-scripts.js"></script>
+	</body>
+</html>
